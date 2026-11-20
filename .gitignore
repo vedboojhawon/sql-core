@@ -1,0 +1,74 @@
+# ---------- Secrets: never commit ----------
+.env
+.env.*
+*.pfx
+*.p12
+*.pem
+*.key
+*.cer
+*.publishsettings
+*.secret
+secrets*.json
+secrets*.txt
+credentials*.json
+credentials*.txt
+
+# ---------- Power Platform / Power Automate Desktop ----------
+# Deployment settings carry connection IDs and env var values.
+# Commit a sanitised deploymentSettings.example.json instead.
+deploymentSettings*.json
+*.settings.json
+# Connection references exported with credentials or connection IDs
+connectionreferences*.json
+connections*.json
+# Zipped solution exports: commit the unpacked source (pac solution unpack), not the zip
+*.zip
+# Packed canvas apps: commit the unpacked source (pac canvas unpack), not the .msapp
+*.msapp
+# pac solution build output (cdsproj)
+bin/
+obj/
+# Run outputs, logs and screenshots generated at run time
+output/
+logs/
+*.log
+# Office lock and temp files (sample .xlsx files ARE committed; synthetic data only)
+~$*
+*.tmp
+
+# ---------- Data ----------
+# Build sample databases from a committed .sql seed script instead.
+*.db
+*.sqlite
+*.sqlite3
+*.db-journal
+
+# ---------- Python ----------
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ipynb_checkpoints/
+dist/
+build/
+
+# ---------- OS / editor ----------
+.DS_Store
+Thumbs.db
+desktop.ini
+.vs/
+*.user
+.vscode/*
+.idea/
+
+# ---------- Allow-list: MUST stay last (last matching rule wins) ----------
+!.env.example
+!*.example
+!*.example.*
+!.vscode/extensions.json
+# Deliberate synthetic sample DB, only if needed:
+# !samples/demo.db
